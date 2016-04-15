@@ -1,0 +1,17 @@
+{
+  "name": "console-ticker",
+  "version": "0.0.1",
+  "description": "Small app that shows real-time financial data on the console",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nicolas Rotta",
+  "license": "ISC",
+  "dependencies": {
+    "cli-table": "^0.3.1",
+    "co": "^4.6.0",
+    "colors": "^1.1.2",
+    "yqlp": "^0.2.0"
+  }
+}
