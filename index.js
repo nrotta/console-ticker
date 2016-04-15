@@ -8,11 +8,11 @@ const colorize = value => {
   var raw = value.replace(/%/g, '');
 
   if (raw == 0) {
-    return raw;
+    return value;
   } else if (raw > 0) {
-    return raw.green;
+    return value.green;
   } else {
-    return raw.red;
+    return value.red;
   }
 };
 
@@ -28,7 +28,7 @@ var table = new Table({
 setInterval(() => {
   console.log('\033c');
   table.splice(0, table.length);
-  
+
   co(function * () {
     const data = yield Stocks.getQuotes(quotes);
 
@@ -45,4 +45,4 @@ setInterval(() => {
   }).catch(err => {
     throw err;
   });
-}, 3000);
+}, 10000);
