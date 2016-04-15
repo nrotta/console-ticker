@@ -1,5 +1,3 @@
-'use strict';
-
 const co = require('co');
 const Table = require('cli-table');
 const Colors = require('colors');
@@ -7,7 +5,7 @@ const Colors = require('colors');
 const Stocks = require('./lib/stocks');
 
 const colorize = value => {
-  let raw = value.replace(/%/g, '');
+  var raw = value.replace(/%/g, '');
 
   if (raw == 0) {
     return raw;
@@ -22,12 +20,15 @@ const quotes = [
   'AAPL', 'GOOG', 'SLCA', 'TWTR', 'V', 'VZ', 'WFC', 'AMBA', 'DIS', 'EWG'
 ];
 
-let table = new Table({
+var table = new Table({
   head: ['Symbol', 'Price', '% Change', 'Change'],
   colWidths: [30, 30, 30, 30]
 });
 
 setInterval(() => {
+  console.log('\033c');
+  table.splice(0, table.length);
+  
   co(function * () {
     const data = yield Stocks.getQuotes(quotes);
 
